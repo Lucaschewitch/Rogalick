@@ -2,7 +2,6 @@ import pygame
 
 
 class Spike(pygame.sprite.Sprite):
-    # Общие ресурсы для всех экземпляров
     SPIKE_STATES = []
 
     @classmethod
