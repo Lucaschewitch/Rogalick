@@ -23,7 +23,6 @@ class Spike(pygame.sprite.Sprite):
         self.width = width
         self.height = height
 
-        # Для совместимости с существующим кодом отрисовки
         self.spikeStates = self.SPIKE_STATES
 
         self.active = (spike_type == 'on')
@@ -39,7 +38,6 @@ class Spike(pygame.sprite.Sprite):
         return 1 if self.inversion_timer <= 60 else 0
 
     def toggle_state(self):
-        # Исправлено имя метода на оригинальное: playSfx вместо play_sfx
         self.game.menu.sound.playSfx(3)
         self.active = not self.active
 
