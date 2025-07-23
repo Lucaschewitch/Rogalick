@@ -117,7 +117,6 @@ class Slider:
     def draw(self):
         self.menu.screen.blit(self.images[0], (self.x, self.y))
         self.menu.screen.blit(self.images[1], (self.rectBall.x, self.rectBall.y - 5))
-        # pygame.draw.rect(self.menu.screen, (255,255,255), (self.rectSlide.x, self.rectSlide.y, self.rectSlide.width, self.rectSlide.height))
 
     def mapping(self, x, inMin, inMax, outMin=None, outMax=None):
         if outMin == None and outMax == None:
