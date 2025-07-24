@@ -37,7 +37,6 @@ class Player(pygame.sprite.Sprite):
         self.magicBook = self.game.saves.playerA1['magicBook']
         self.action = False
         self.setMagic(self.magicBook)
-        # self.gunBarrel = [X , Y]
 
     def update(self):
         self.goCooldownHab1()
