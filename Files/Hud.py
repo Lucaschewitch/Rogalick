@@ -42,7 +42,7 @@ class Hud:
         return stages
 
     def _load_boss_heart_images(self):
-        """Загрузка изображений сердец босса (сохранено для совместимости)"""
+        """Загрузка изображений сердец босса"""
         heart_img = pygame.image.load('../Assets/heartBoss.png').convert_alpha()
         return [
             pygame.transform.scale(heart_img.subsurface(pygame.Rect(x, 0, 13, 12)), (26, 24))
@@ -50,7 +50,6 @@ class Hud:
         ]
 
     def _prepare_death_text(self):
-        """Подготовка текста 'POTRACHENO'"""
         text_surface = textGui().text(
             'POTRACHENO',
             color=(140, 0, 0),
@@ -61,7 +60,6 @@ class Hud:
         return pygame.transform.scale(text_surface, (295, 120))
 
     def update(self):
-        """Обновление состояния HUD"""
         self._update_hearts()
         self._update_bars()
 
@@ -79,7 +77,6 @@ class Hud:
         self.empty_hearts = (max_life // 2) - self.full_hearts - self.half_hearts
 
     def _update_bars(self):
-        """Обновление состояния полосок способностей"""
         player = self.game.player
         self.cooldown_bar.width = self._calculate_bar_width(
             player.bookMagicCooldown,
@@ -91,7 +88,6 @@ class Hud:
         )
 
     def _calculate_bar_width(self, current, maximum):
-        """Расчет ширины полосы состояния"""
         return max(1, int(30 * current / maximum)) if maximum > 0 else 0
 
     def _handle_death_state(self):
@@ -110,7 +106,7 @@ class Hud:
             self.game.gameRun(self.game.saveName)
 
     def draw(self):
-        """Отрисовка всех элементов HUD"""
+        """Отрисовка всех элементов"""
         self._draw_hearts()
         self._draw_book()
         self._draw_bars()
@@ -142,7 +138,6 @@ class Hud:
         self.game.screen.blit(book_img, self.BOOK_POSITION)
 
     def _draw_bars(self):
-        """Отрисовка полосок перезарядки"""
         if self.effect_bar.width > 1:
             pygame.draw.rect(self.game.screen, (255, 0, 0), self.effect_bar)
         if self.cooldown_bar.width > 1:
