@@ -12,11 +12,10 @@ class Hole(pygame.sprite.Sprite):
         self.w = w
         self.h = h
 
-        # Автоматически добавляем себя в группу отверстий игры
         game.holes.add(self)
 
     def update(self):
-        # Уничтожаем врагов, попавших в яму (оптимизированная проверка)
+        # Уничтожаем врагов, попавших в яму
         pygame.sprite.spritecollide(self, self.game.enemies, True)
 
         # Обработка столкновения игрока с ямой
